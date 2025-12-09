@@ -59,7 +59,7 @@ html, body {
   background: #ff69b4;
   color: white;
   padding: 5px;
-  font-weight: bold;
+  font-weight: lighter;
   text-align: center;
   border-bottom: 2px solid #000;
 }
@@ -70,7 +70,7 @@ html, body {
   min-height: 60px;
   font-size: 20px;
   position: relative;
-  color: #000;
+  color:#191D1E; 
 }
 
 
@@ -218,7 +218,7 @@ html, body {
 #stars {
   position:absolute;
   inset:0;
-  background:url('images/stars.png');
+  background:url('images/starss.gif');
   background-size:cover;
   opacity:0.9;
 }
@@ -242,7 +242,7 @@ html, body {
   100% { transform:translateX(20px) translateY(15px); }
 }
 
-/* FLOATING PARTICLES */
+/* FLOATING PARTICLES
 #floatingParticles {
   position:absolute;
   inset:0;
@@ -255,11 +255,11 @@ html, body {
   position:absolute;
   width:100%;
   height:100%;
-  background:url('images/particles.png');
+  background:url('images/particless.gif');
   background-size:contain;
   opacity:0.5;
   animation: floatUp 25s linear infinite;
-}
+} */
 
 @keyframes floatUp {
   0% { transform:translateY(20%); }
@@ -292,6 +292,37 @@ html, body {
 .cosmic.active {
   opacity:1;
 }
+
+/* #cosmicGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 182, 255, 0.25),
+    rgba(106, 0, 255, 0.18),
+    rgba(4, 250, 254, 0.12),
+    transparent 75%
+  );
+
+  filter: blur(80px);
+  animation: cosmicPulse 6s infinite ease-in-out alternate;
+  opacity: 0.7;
+}
+
+@keyframes cosmicPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+ */
 
 
 

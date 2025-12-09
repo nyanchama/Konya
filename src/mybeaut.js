@@ -17,7 +17,7 @@ const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
 const staticShort = new Audio("src/sounds/static_short.mp3");
 
-const cosmicMusic = new Audio("src/sounds/soundtrack4.mp3");
+const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
 cosmicMusic.loop = true;
 cosmicMusic.volume = 0.9
 
