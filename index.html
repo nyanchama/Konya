@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>"now," she says, "you're in my heart"</title>
+  <link rel="stylesheet" href="src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+<div id="modalBackdrop" class="modal-backdrop">
+  <div class="modal-window">
+    <div class="modal-titlebar">
+      <span class="title-text">💌 Alert</span>
+    </div>
+    <div class="modal-body">
+      <p id="modalText" aria-live="polite"></p>
+      <!-- <div id="bedLinkContainer"></div> -->
+    </div>
+
+    <div class="modal-buttons">
+      <button id="btnYes" class="retro-btn">yes</button>
+      <button id="btnNo" class="retro-btn">no</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden main content shown after YES -->
+<!-- <div id="mainContent" class="hidden">
+  <div id="introScreen" class="hidden">
+    <p id="introText"></p>
+    <div id="bedLinkContainer"></div>
+  </div>
+</div> -->
+<div id="tvScreen" class="hidden center">
+  <div class="tv-frame">
+    <div class="tv-display">
+      <div id="tvStatic" class="static-on"></div>
+      <div id="tvOverlay">
+        <p id="tvMessage" class="tv-message"></p>
+        <span id="tvBed" class="bed-wiggle hidden">🛌🏿</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="cosmicStage" class="hidden">
+  <div id="stars"></div>
+  <div id="poemArea" class="poem-area"></div>
+</main>
+
+
+
+
+<audio id="alert" src="src/sounds/alert.wav" preload="auto"></audio>
+
+<script src="src/mybeaut.js"></script>
+</body>
+</html>
