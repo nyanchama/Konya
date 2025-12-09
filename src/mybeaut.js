@@ -15,7 +15,7 @@ const alertSound = document.getElementById("alert");
 const clickSound = new Audio("src/sounds/click.wav");
 const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
-const staticShort = new Audio("src/sounds/static_short.mp3");
+const staticShort = new Audio("src/sounds/static.mp3");
 
 const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
 cosmicMusic.loop = true;
@@ -63,6 +63,20 @@ function showModal() {
     );
 }
 
+// NO
+btnNo.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+
+  errorSound.currentTime = 0;
+  errorSound.play();
+
+  alert("⛔ jaribu tena...");
+  modal.style.display = "none";
+
+  setTimeout(showModal, 400);
+});
+
 // YES
 btnYes.addEventListener("click", () => {
   clickSound.currentTime = 0;
@@ -78,26 +92,13 @@ btnYes.addEventListener("click", () => {
   tvScreen.classList.remove("hidden");
   //showIntroMessage();
   staticShort.currentTime = 0;
+  staticShort.loop = true;
   staticShort.play();
 
-   
   tvMessage.textContent = "baby, here's a small place i dreamed up for you";
   tvBed.classList.remove("hidden");
 });
 
-// NO
-btnNo.addEventListener("click", () => {
-  clickSound.currentTime = 0;
-  clickSound.play();
-
-  errorSound.currentTime = 0;
-  errorSound.play();
-
-  alert("⛔ jaribu tena...");
-  modal.style.display = "none";
-
-  setTimeout(showModal, 400);
-});
 
 tvBed.addEventListener("click", () => {
  clickSound.currentTime = 0;
@@ -105,6 +106,10 @@ tvBed.addEventListener("click", () => {
 
   // turn off static
 tvStatic.classList.add("static-off");
+
+ // turn off static sound
+  staticShort.pause();
+  staticShort.currentTime = 0;
 
 typeText("Tuning…", tvMessage, () => {
     setTimeout(() => {
