@@ -220,7 +220,7 @@ function startPoemTiming() {
         // fade-in
         cosmicPoemLine.classList.add("show");
 
-        // stay visible 5s → fade out
+        // stay visible 6s → fade out
         setTimeout(() => {
           cosmicPoemLine.classList.remove("show");
 
@@ -229,7 +229,7 @@ function startPoemTiming() {
             lineLocked = false;
           }, 2000);
 
-        }, 5000);
+        }, 6000);
       }
     };
 }
