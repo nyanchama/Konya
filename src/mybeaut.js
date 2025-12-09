@@ -111,7 +111,7 @@ tvStatic.classList.add("static-off");
   staticShort.pause();
   staticShort.currentTime = 0;
 
-typeText("Tuning…", tvMessage, () => {
+typeText("tuning...", tvMessage, () => {
     setTimeout(() => {
       revealCosmicWorld();
     }, 600);
