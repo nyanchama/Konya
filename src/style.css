@@ -82,6 +82,7 @@ html, body {
 .retro-btn {
   font-family: "VT323", monospace;
   font-size: 14px;
+  color:#191D1E;
   padding: 6px 18px;
   margin: 5px;
   background: #ffb6c1;
@@ -218,7 +219,7 @@ html, body {
 #stars {
   position:absolute;
   inset:0;
-  background:url('images/starss.gif');
+  background:url('images/stars.gif');
   background-size:cover;
   opacity:0.9;
 }
