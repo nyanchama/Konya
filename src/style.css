@@ -319,6 +319,39 @@ html, body {
   opacity: 1;
 }
 
+.exit-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.exit-btn:not(.hidden) {
+  opacity: 1;
+}
+
+.exit-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.exit-btn:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
 
 /* #cosmicGlow {
   position: absolute;

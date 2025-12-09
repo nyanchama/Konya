@@ -148,7 +148,15 @@ const cosmicPoemLine = document.getElementById("cosmicPoemLine");
 
 // Hafiz poem (line by line)
 const poemLines = [
-  "here's my favourite poem, i dedicate it to you:",
+  "i'm still scarce of words",
+  "so",
+  "i've decided to have the courage",
+  'to let "i love you"',
+  "stand on its own",
+  "i love you.",
+  "but here's a poem dedix",
+  "one of my favourite poems",
+  "What Happens, by Hafiz:",
   "what happens when your soul",
   "begins to awaken",
   "your eyes",
@@ -156,47 +164,37 @@ const poemLines = [
   "and the cells of your body",
   "to the great Journey of Love?",
 
-  "",
-
   "first there is wonderful laughter",
   "and probably precious tears",
-
-  "",
 
   "and a hundred sweet promises",
   "and those heroic vows",
   "no one can ever keep.",
 
-  "",
-
   "but still God is delighted and amused",
   "you once tried to be a saint.",
 
-  "",
 
   "what happens when your soul",
   "begins to awake in this world",
 
-  "",
 
   "to our deep need to love",
   "and serve the Friend?",
-
-  "",
 
   "o the Beloved",
   "will send you",
   "one of His wonderful, wild companions –",
 
-  "",
-
-  "like Hafiz."
+  "like Hafiz.",
+  "i love you always, baby.",
+  "may your paths always be peace.",
 ];
 
-// When each line appears (% of soundtrack)
+
 let timings = [];
-const startPercent = 0.06;   // first line at 6%
-const endPercent   = 0.94;   // last line before 100%
+const startPercent = 0.03;   
+const endPercent   = 0.90;   
 const totalLines   = poemLines.length;
 
 // generate evenly spaced percentages
@@ -240,6 +238,77 @@ function startPoemTiming() {
       }
     };
 }
+
+const exitBtn = document.getElementById("exitBtn");
+
+// Show exit button when poem finishes
+function showExitButton() {
+  setTimeout(() => {
+    exitBtn.classList.remove("hidden");
+  }, 2000); // Appear 2 seconds after last line fades
+}
+
+// Update the startPoemTiming function to detect when poem ends
+function startPoemTiming() {
+  cosmicMusic.ontimeupdate = () => {
+    if (poemIndex >= poemLines.length) {
+      // Poem finished - show exit button
+      if (!exitBtn.classList.contains("hidden")) return;
+      showExitButton();
+      return;
+    }
+    if (lineLocked) return;
+    
+    const duration = cosmicMusic.duration;
+    const t = cosmicMusic.currentTime;
+
+    if (t >= duration * timings[poemIndex]) {
+      lineLocked = true;
+
+      cosmicPoemLine.textContent = poemLines[poemIndex];
+      cosmicPoemLine.classList.add("show");
+
+      setTimeout(() => {
+        cosmicPoemLine.classList.remove("show");
+
+        setTimeout(() => {
+          poemIndex++;
+          lineLocked = false;
+        }, 1200);
+
+      }, 3000);
+    }
+  };
+}
+
+exitBtn.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+
+  // Fade out music
+  const fadeOut = setInterval(() => {
+    if (cosmicMusic.volume > 0.05) {
+      cosmicMusic.volume -= 0.05;
+    } else {
+      cosmicMusic.pause();
+      clearInterval(fadeOut);
+    }
+  }, 50);
+
+  // Fade out cosmic stage
+  cosmicStage.classList.remove("active");
+  
+  setTimeout(() => {
+    cosmicStage.classList.add("hidden");
+    cosmicMusic.volume = 0.9;
+    poemIndex = 0;
+    lineLocked = false;
+    exitBtn.classList.add("hidden");
+    cosmicPoemLine.textContent = "";
+    
+    showModal();
+  }, 1800);
+});
 
 window.addEventListener("load", () => {
   showModal();
