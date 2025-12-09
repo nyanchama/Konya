@@ -89,12 +89,9 @@ btnYes.addEventListener("click", () => {
   staticShort.play();
 
    setTimeout(() => {
-    typeText(
-      "baby, here's a small place i dreamed up for you.",
-      tvMessage,
-      () => tvBed.classList.remove("hidden")
-    );
-  }, 600);
+  tvMessage.textContent = "baby, here's a small place i dreamed up for you.";
+  tvBed.classList.remove("hidden");
+}, 600);
 });
 
 
