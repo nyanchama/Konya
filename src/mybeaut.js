@@ -181,12 +181,14 @@ const poemLines = [
   "like Hafiz.",
   '',
   "i love you always, baby.",
+  "thank you for being here",
+  '',
   "may your paths always be peace.",
 ];
 
 
 let timings = [];
-const startPercent = 0.03;   
+const startPercent = 0.05;   
 const endPercent   = 0.75;   
 const totalLines   = poemLines.length;
 
