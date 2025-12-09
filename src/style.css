@@ -51,6 +51,7 @@ html, body {
   border-radius: 8px;
   width: 350px;
   box-shadow: 6px 6px 0px #000;
+  color: #000;
 }
 
 
@@ -69,6 +70,7 @@ html, body {
   min-height: 60px;
   font-size: 20px;
   position: relative;
+  color: #000;
 }
 
 
