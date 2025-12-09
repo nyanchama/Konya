@@ -155,7 +155,7 @@ const poemLines = [
   '',
   "i love you.",
   '',
-  "but here's a poem",
+  "here's a poem",
   "one of my favourite poems",
   "What Happens, by Hafiz:",
   "what happens when your soul",
