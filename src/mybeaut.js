@@ -9,16 +9,7 @@ const tvStatic = document.getElementById("tvStatic");
 const tvMessage = document.getElementById("tvMessage");
 const tvBed = document.getElementById("tvBed");
 
-
-
 const alertSound = document.getElementById("alert");
-
-const introScreen = document.getElementById("introScreen");
-const introText = document.getElementById("introText");
-const bedLinkContainer = document.getElementById("bedLinkContainer");
-
-
-
 const clickSound = new Audio("src/sounds/click.wav");
 const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
