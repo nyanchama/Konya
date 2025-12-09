@@ -227,7 +227,7 @@ function startPoemTiming() {
           setTimeout(() => {
             poemIndex++;
             lineLocked = false;
-          }, 1200);
+          }, 2000);
 
         }, 3000);
       }
