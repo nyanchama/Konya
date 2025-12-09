@@ -3,21 +3,25 @@
   --tv:#051221;
   --glow:#7fe0ff;
   --accent:#ffb6c1;
+
+  --vaporpurple1: #2b1055;
+  --vaporpurple2: #6a00ff;
+  --vaporpink: #ff5edf;
+  --vaporblue: #04fafe;
 }
 
 body {
-  font-family: "VT323", monospace;
-  font-weight: 400;
-  font-style: normal;
+ margin: 0;
   background: #1F2227;
-  margin: 0;
-  text-align: center;
+  font-family: "VT323", monospace;
+  color: white;
+  overflow-x: hidden;
+  /* text-align: center; */
 }
 
 html, body {
   height: 100%;
 }
-
 
 .center {
   display:flex;
@@ -25,6 +29,7 @@ html, body {
   justify-content:center;
   flex-direction:column;
   min-height: 100vh;
+  text-align:center;
 }
 
 .hidden { display: none; }
@@ -175,6 +180,11 @@ html, body {
     0 0 20px var(--glow);
 }
 
+@keyframes lightFlicker {
+  0%, 100% { opacity: 1; }
+  98% { opacity: 0.95; }
+}
+
 /* bed wiggle */
 .bed-wiggle {
   font-size:48px;
@@ -193,10 +203,97 @@ html, body {
   100%{transform:translateX(0)}
 }
 
-@keyframes lightFlicker {
-  0%, 100% { opacity: 1; }
-  98% { opacity: 0.95; }
+/* cosmic world */
+.cosmic {
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  opacity:0;
+  transition:opacity 2.4s ease;
 }
+
+/* STARFIELD */
+#stars {
+  position:absolute;
+  inset:0;
+  background:url('images/stars.png');
+  background-size:cover;
+  opacity:0.9;
+}
+
+/* NEBULA */
+#nebula {
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 60% 40%,
+      rgba(255,94,223,0.45),
+      rgba(106,0,255,0.35),
+      rgba(4,250,254,0.12),
+      transparent 70%);
+  mix-blend-mode: screen;
+  filter: blur(40px);
+  animation: nebulaMove 14s infinite alternate ease-in-out;
+}
+
+@keyframes nebulaMove {
+  0% { transform:translateX(-20px) translateY(0); }
+  100% { transform:translateX(20px) translateY(15px); }
+}
+
+/* FLOATING PARTICLES */
+#floatingParticles {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+#floatingParticles::before,
+#floatingParticles::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url('images/particles.png');
+  background-size:contain;
+  opacity:0.5;
+  animation: floatUp 25s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform:translateY(20%); }
+  100% { transform:translateY(-100%); }
+}
+
+/* COSMIC TEXT */
+.poem-area {
+  position:relative;
+  z-index:10;
+  text-align:center;
+  margin-top:20vh;
+}
+
+.cosmic-title {
+  font-size:50px;
+  color:white;
+  text-shadow:0 0 20px var(--vaporpink), 0 0 35px var(--vaporblue);
+}
+
+.cosmic-subtitle {
+  font-size:24px;
+  margin-top:12px;
+  color:#ffe3ff;
+}
+
+
+
+/* Fade in cosmic world when activated */
+.cosmic.active {
+  opacity:1;
+}
+
+
+
+
 
 /* #mainContent {
 text-align: center;
