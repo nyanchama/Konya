@@ -95,7 +95,7 @@ btnYes.addEventListener("click", () => {
   staticShort.loop = true;
   staticShort.play();
 
-  tvMessage.textContent = "baby, here's a small place i dreamed up for you";
+  tvMessage.textContent = "baby, here's a little place i dreamed up for you";
   tvBed.classList.remove("hidden");
 });
 
@@ -143,6 +143,104 @@ function revealCosmicWorld() {
   }, 1800);
 }
 
+// poem element
+const cosmicPoemLine = document.getElementById("cosmicPoemLine");
+
+// Hafiz poem (line by line)
+const poemLines = [
+  "here's my favourite poem, i dedicate it to you:",
+  "what happens when your soul",
+  "begins to awaken",
+  "your eyes",
+  "and your heart",
+  "and the cells of your body",
+  "to the great Journey of Love?",
+
+  "",
+
+  "first there is wonderful laughter",
+  "and probably precious tears",
+
+  "",
+
+  "and a hundred sweet promises",
+  "and those heroic vows",
+  "no one can ever keep.",
+
+  "",
+
+  "but still God is delighted and amused",
+  "you once tried to be a saint.",
+
+  "",
+
+  "what happens when your soul",
+  "begins to awake in this world",
+
+  "",
+
+  "to our deep need to love",
+  "and serve the Friend?",
+
+  "",
+
+  "o the Beloved",
+  "will send you",
+  "one of His wonderful, wild companions –",
+
+  "",
+
+  "like Hafiz."
+];
+
+// When each line appears (% of soundtrack)
+let timings = [];
+const startPercent = 0.06;   // first line at 6%
+const endPercent   = 0.94;   // last line before 100%
+const totalLines   = poemLines.length;
+
+// generate evenly spaced percentages
+for (let i = 0; i < totalLines; i++) {
+  timings.push(startPercent + (i / (totalLines - 1)) * (endPercent - startPercent));
+}
+
+let poemIndex = 0;
+let lineLocked = false;
+
+cosmicMusic.addEventListener("loadedmetadata", startPoemTiming);
+
+function startPoemTiming() {
+  
+    cosmicMusic.ontimeupdate = () => {
+      if (poemIndex >= poemLines.length) return;
+      if (lineLocked) return;
+      
+      const duration = cosmicMusic.duration;
+      const t = cosmicMusic.currentTime;
+
+      if (t >= duration * timings[poemIndex]) {
+        lineLocked = true;
+
+        // set poem text
+        cosmicPoemLine.textContent = poemLines[poemIndex];
+
+        // fade-in
+        cosmicPoemLine.classList.add("show");
+
+        // stay visible 3s → fade out
+        setTimeout(() => {
+          cosmicPoemLine.classList.remove("show");
+
+          setTimeout(() => {
+            poemIndex++;
+            lineLocked = false;
+          }, 1200);
+
+        }, 3000);
+      }
+    };
+}
+
 window.addEventListener("load", () => {
   showModal();
 });
@@ -169,6 +267,5 @@ window.addEventListener("load", () => {
 //     });
 //   }, 1200); 
 // }
-
 
 

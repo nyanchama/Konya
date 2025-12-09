@@ -302,12 +302,23 @@ html, body {
   color:#ffe3ff;
 }
 
-
-
 /* Fade in cosmic world when activated */
 .cosmic.active {
   opacity:1;
 }
+
+.cosmic-poem-line {
+  opacity: 0;
+  font-size: 22px;
+  margin-top: 20px;
+  color: #ffeaff;
+  text-shadow: 0 0 8px #ff8bff, 0 0 14px #c06bff;
+  transition: opacity 1.2s ease;
+}
+.cosmic-poem-line.show {
+  opacity: 1;
+}
+
 
 /* #cosmicGlow {
   position: absolute;
