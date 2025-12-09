@@ -236,14 +236,14 @@ function startPoemTiming() {
 
 const exitBtn = document.getElementById("exitBtn");
 
-// Show exit button when poem finishes
+
 function showExitButton() {
   setTimeout(() => {
     exitBtn.classList.remove("hidden");
-  }, 2000); // Appear 2 seconds after last line fades
+  }, 2000);
 }
 
-// Update the startPoemTiming function to detect when poem ends
+//detect when poem ends
 function startPoemTiming() {
   cosmicMusic.ontimeupdate = () => {
     if (poemIndex >= poemLines.length) {
