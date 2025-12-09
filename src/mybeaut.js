@@ -19,7 +19,7 @@ const staticShort = new Audio("src/sounds/static_short.mp3");
 
 const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
 cosmicMusic.loop = true;
-cosmicMusic.volume = 0.9
+cosmicMusic.volume = 1.11;
 
 clickSound.preload = "auto";
 startSound.preload = "auto";
