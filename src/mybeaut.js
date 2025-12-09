@@ -131,7 +131,7 @@ function revealCosmicWorld() {
     cosmicStage.classList.add("active");
   }, 50);
 
-  // Play music only when world is fully visible
+  // music when world is fully visible
   setTimeout(() => {
     cosmicMusic.currentTime = 0;
     cosmicMusic.play().catch(()=>{});

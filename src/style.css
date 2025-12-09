@@ -215,6 +215,21 @@ html, body {
   transition:opacity 2.4s ease;
 }
 
+.cosmic-title {
+  font-size:50px;
+  color:white;
+  text-shadow:0 0 20px var(--vaporpink), 0 0 35px var(--vaporblue);
+  opacity: 1;
+  animation: fadeOutTitle 6s ease forwards;
+  animation-delay: 3s; 
+}
+
+@keyframes fadeOutTitle {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+
 /* STARFIELD */
 #stars {
   position:absolute;
