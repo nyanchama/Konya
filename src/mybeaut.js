@@ -149,12 +149,13 @@ const cosmicPoemLine = document.getElementById("cosmicPoemLine");
 // Hafiz poem (line by line)
 const poemLines = [
   "i'm still scarce of words",
-  "so",
-  "i've decided to have the courage",
-  'to let "i love you"',
+  "so, i've decided to have the courage",
+  'to let "i love you."',
   "stand on its own",
+  '',
   "i love you.",
-  "but here's a poem dedix",
+  '',
+  "but here's a poem",
   "one of my favourite poems",
   "What Happens, by Hafiz:",
   "what happens when your soul",
@@ -163,30 +164,22 @@ const poemLines = [
   "and your heart",
   "and the cells of your body",
   "to the great Journey of Love?",
-
   "first there is wonderful laughter",
   "and probably precious tears",
-
   "and a hundred sweet promises",
   "and those heroic vows",
   "no one can ever keep.",
-
   "but still God is delighted and amused",
   "you once tried to be a saint.",
-
-
   "what happens when your soul",
   "begins to awake in this world",
-
-
   "to our deep need to love",
   "and serve the Friend?",
-
   "o the Beloved",
   "will send you",
   "one of His wonderful, wild companions –",
-
   "like Hafiz.",
+  '',
   "i love you always, baby.",
   "may your paths always be peace.",
 ];
