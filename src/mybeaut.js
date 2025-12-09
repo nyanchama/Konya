@@ -60,14 +60,13 @@ function showModal() {
   // alertSound.currentTime = 0;
   // alertSound.play().catch(() => {});
  
-   setTimeout(() => {
+   
      modal.style.display = "flex";
 
     typeText(
       "are you the most beautiful man ever in the whole world?",
       modalText
     );
-    }, 300);
 }
 
 
@@ -88,10 +87,10 @@ btnYes.addEventListener("click", () => {
   staticShort.currentTime = 0;
   staticShort.play();
 
-   setTimeout(() => {
+   
   tvMessage.textContent = "baby, here's a small place i dreamed up for you.";
   tvBed.classList.remove("hidden");
-}, 600);
+
 });
 
 
