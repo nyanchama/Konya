@@ -182,7 +182,7 @@ btnYes.addEventListener("click", () => {
   staticShort.loop = true;
   staticShort.play();
 
-  tvMessage.textContent = "baby, here's a little place i dreamed up for you";
+  tvMessage.textContent = "baby, here's a little place i dreamed up for you...";
   tvBed.classList.remove("hidden");
 });
 
