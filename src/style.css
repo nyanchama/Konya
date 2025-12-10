@@ -319,6 +319,7 @@ html, body {
   opacity: 1;
 }
 
+
 .exit-btn {
   position: fixed;
   bottom: 30px;
@@ -351,6 +352,8 @@ html, body {
 .exit-btn:active {
   transform: translateX(-50%) scale(0.95);
 }
+
+
 
 
 /* #cosmicGlow {

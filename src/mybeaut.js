@@ -46,6 +46,22 @@ function typeText(text, element, callback) {
   type();
 }
 
+  function typePoemLine(text, element, callback) {
+  element.textContent = "";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text[i];
+      i++;
+      setTimeout(type, 50);
+    } else {
+      callback && callback();
+    }
+  }
+  type();
+}
+
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     clickSound.currentTime = 0;
@@ -146,7 +162,7 @@ function revealCosmicWorld() {
 // poem element
 const cosmicPoemLine = document.getElementById("cosmicPoemLine");
 
-// Hafiz poem (line by line)
+// Hafiz poem 
 const poemLines = [
   "i'm still scarce of words",
   "so, i've decided to have the courage",
@@ -202,40 +218,7 @@ let lineLocked = false;
 
 cosmicMusic.addEventListener("loadedmetadata", startPoemTiming);
 
-function startPoemTiming() {
-  
-    cosmicMusic.ontimeupdate = () => {
-      if (poemIndex >= poemLines.length) return;
-      if (lineLocked) return;
-      
-      const duration = cosmicMusic.duration;
-      const t = cosmicMusic.currentTime;
-
-      if (t >= duration * timings[poemIndex]) {
-        lineLocked = true;
-
-        // set poem text
-        cosmicPoemLine.textContent = poemLines[poemIndex];
-
-        // fade-in
-        cosmicPoemLine.classList.add("show");
-
-        // stay visible 6s → fade out
-        setTimeout(() => {
-          cosmicPoemLine.classList.remove("show");
-
-          setTimeout(() => {
-            poemIndex++;
-            lineLocked = false;
-          }, 2000);
-
-        }, 7000);
-      }
-    };
-}
-
 const exitBtn = document.getElementById("exitBtn");
-
 
 function showExitButton() {
   setTimeout(() => {
@@ -243,11 +226,9 @@ function showExitButton() {
   }, 2000);
 }
 
-//when poem ends
 function startPoemTiming() {
   cosmicMusic.ontimeupdate = () => {
     if (poemIndex >= poemLines.length) {
-      // Poem finished - show exit button
       if (!exitBtn.classList.contains("hidden")) return;
       showExitButton();
       return;
@@ -260,18 +241,18 @@ function startPoemTiming() {
     if (t >= duration * timings[poemIndex]) {
       lineLocked = true;
 
-      cosmicPoemLine.textContent = poemLines[poemIndex];
       cosmicPoemLine.classList.add("show");
-
-      setTimeout(() => {
-        cosmicPoemLine.classList.remove("show");
-
+      typePoemLine(poemLines[poemIndex], cosmicPoemLine, () => {
         setTimeout(() => {
-          poemIndex++;
-          lineLocked = false;
-        }, 2000);
+          cosmicPoemLine.classList.remove("show");
 
-      }, 7000);
+          setTimeout(() => {
+            poemIndex++;
+            lineLocked = false;
+          }, 2000);
+
+        }, 6000);
+      });
     }
   };
 }
@@ -280,7 +261,6 @@ exitBtn.addEventListener("click", () => {
   clickSound.currentTime = 0;
   clickSound.play();
 
-  // Fade out music
   const fadeOut = setInterval(() => {
     if (cosmicMusic.volume > 0.05) {
       cosmicMusic.volume -= 0.05;
@@ -290,7 +270,6 @@ exitBtn.addEventListener("click", () => {
     }
   }, 50);
 
-  // Fade out cosmic stage
   cosmicStage.classList.remove("active");
   
   setTimeout(() => {
