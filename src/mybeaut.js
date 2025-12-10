@@ -31,7 +31,7 @@ const exitBtn = document.getElementById("exitBtn");
 
 
 const poemLines = [
-  "baby",
+  "baby,",
   "i'm still scarce of words",
   "so, i've decided to have the courage",
   'to let "i love you."',
