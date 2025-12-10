@@ -40,7 +40,7 @@ const poemLines = [
   "i love you.",
   "",
   "",
-  "mbali na hayo...",
+  "kando na hayo...",
   "may i interest you in a poem?",
   "yes, here's a poem",
   "one of my most beloved poems",
