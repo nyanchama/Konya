@@ -69,6 +69,7 @@ html, body {
   padding: 20px;
   min-height: 60px;
   font-size: 20px;
+  font-weight: lighter;
   position: relative;
   color:#191D1E; 
 }
@@ -313,7 +314,7 @@ html, body {
   margin-top: 20px;
   color: #ffeaff;
   text-shadow: 0 0 8px #ff8bff, 0 0 14px #c06bff;
-  transition: opacity 1.2s ease;
+  transition: opacity 1.88s ease;
 }
 .cosmic-poem-line.show {
   opacity: 1;
