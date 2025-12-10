@@ -36,7 +36,6 @@ const poemLines = [
   'to let "i love you."',
   "stand on its own",
   "",
-  "",
   "i love you.",
   "",
   "",
