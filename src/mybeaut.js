@@ -10,6 +10,10 @@ const tvMessage = document.getElementById("tvMessage");
 const tvBed = document.getElementById("tvBed");
 
 const cosmicStage = document.getElementById("cosmicStage");
+// poem element
+const cosmicPoemLine = document.getElementById("cosmicPoemLine");
+const exitBtn = document.getElementById("exitBtn");
+
 
 const alertSound = document.getElementById("alert");
 const clickSound = new Audio("src/sounds/click.wav");
@@ -21,10 +25,65 @@ const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
 cosmicMusic.loop = false;
 cosmicMusic.volume = 0.9;
 
+
 clickSound.preload = "auto";
 startSound.preload = "auto";
 errorSound.preload = "auto";
 alertSound.preload = "auto";
+
+const poemLines = [
+  "i'm still scarce of words",
+  "so, i've decided to have the courage",
+  'to let "i love you."',
+  "stand on its own",
+  '',
+  "i love you.",
+  '',
+  "here's a poem",
+  "one of my favourite poems",
+  "What Happens, by Daniel Ladinsky:",
+  "",
+  "what happens when your soul",
+  "begins to awaken",
+  "your eyes",
+  "and your heart",
+  "and the cells of your body",
+  "to the great Journey of Love?",
+  "first there is wonderful laughter",
+  "and probably precious tears",
+  "and a hundred sweet promises",
+  "and those heroic vows",
+  "no one can ever keep.",
+  "but still God is delighted and amused",
+  "you once tried to be a saint.",
+  "what happens when your soul",
+  "begins to awake in this world",
+  "to our deep need to love",
+  "and serve the Friend?",
+  "O the Beloved",
+  "will send you",
+  "one of His wonderful, wild companions –",
+  "like Hafiz.",
+  '',
+  "i love you always, baby.",
+  "thank you for being here",
+  '',
+  "may your paths always be peace.",
+];
+
+
+let timings = [];
+const startPercent = 0.05;   
+const endPercent   = 0.75;   
+const totalLines   = poemLines.length;
+
+//evenly spaced percentages
+for (let i = 0; i < totalLines; i++) {
+  timings.push(startPercent + (i / (totalLines - 1)) * (endPercent - startPercent));
+}
+
+let poemIndex = 0;
+let lineLocked = false;
 
 
 function typeText(text, element, callback) {
@@ -144,7 +203,6 @@ typeText("tuning...", tvMessage, () => {
 
 function revealCosmicWorld() {
   tvScreen.classList.add("hidden");
-
   cosmicStage.classList.remove("hidden");
 
   // trigger fade-in animation
@@ -157,74 +215,6 @@ function revealCosmicWorld() {
     cosmicMusic.currentTime = 0;
     cosmicMusic.play().catch(()=>{});
   }, 1800);
-}
-
-// poem element
-const cosmicPoemLine = document.getElementById("cosmicPoemLine");
-
-// Hafiz poem 
-const poemLines = [
-  "i'm still scarce of words",
-  "so, i've decided to have the courage",
-  'to let "i love you."',
-  "stand on its own",
-  '',
-  "i love you.",
-  '',
-  "here's a poem",
-  "one of my favourite poems",
-  "What Happens, by Daniel Ladinsky:",
-  "",
-  "what happens when your soul",
-  "begins to awaken",
-  "your eyes",
-  "and your heart",
-  "and the cells of your body",
-  "to the great Journey of Love?",
-  "first there is wonderful laughter",
-  "and probably precious tears",
-  "and a hundred sweet promises",
-  "and those heroic vows",
-  "no one can ever keep.",
-  "but still God is delighted and amused",
-  "you once tried to be a saint.",
-  "what happens when your soul",
-  "begins to awake in this world",
-  "to our deep need to love",
-  "and serve the Friend?",
-  "O the Beloved",
-  "will send you",
-  "one of His wonderful, wild companions –",
-  "like Hafiz.",
-  '',
-  "i love you always, baby.",
-  "thank you for being here",
-  '',
-  "may your paths always be peace.",
-];
-
-
-let timings = [];
-const startPercent = 0.05;   
-const endPercent   = 0.75;   
-const totalLines   = poemLines.length;
-
-// generate evenly spaced percentages
-for (let i = 0; i < totalLines; i++) {
-  timings.push(startPercent + (i / (totalLines - 1)) * (endPercent - startPercent));
-}
-
-let poemIndex = 0;
-let lineLocked = false;
-
-cosmicMusic.addEventListener("loadedmetadata", startPoemTiming);
-
-const exitBtn = document.getElementById("exitBtn");
-
-function showExitButton() {
-  setTimeout(() => {
-    exitBtn.classList.remove("hidden");
-  }, 2000);
 }
 
 function startPoemTiming() {
@@ -256,6 +246,15 @@ function startPoemTiming() {
       });
     }
   };
+}
+
+cosmicMusic.addEventListener("loadedmetadata", startPoemTiming);
+
+
+function showExitButton() {
+  setTimeout(() => {
+    exitBtn.classList.remove("hidden");
+  }, 2000);
 }
 
 exitBtn.addEventListener("click", () => {
