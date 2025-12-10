@@ -54,7 +54,7 @@ function typeText(text, element, callback) {
     if (i < text.length) {
       element.textContent += text[i];
       i++;
-      setTimeout(type, 50);
+      setTimeout(type, 80);
     } else {
       callback && callback();
     }
