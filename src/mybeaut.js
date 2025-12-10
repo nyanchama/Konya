@@ -10,16 +10,15 @@ const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
 const staticShort = new Audio("src/sounds/static.mp3");
 
-const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
-cosmicMusic.loop = false;
-cosmicMusic.volume = 0.9;
-
-
 clickSound.preload = "auto";
 startSound.preload = "auto";
 errorSound.preload = "auto";
 alertSound.preload = "auto";
 
+const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
+cosmicMusic.loop = false;
+cosmicMusic.volume = 0.9;
+cosmicMusic.preload = "auto";
 const tvScreen = document.getElementById("tvScreen");
 const tvStatic = document.getElementById("tvStatic");
 const tvMessage = document.getElementById("tvMessage");
