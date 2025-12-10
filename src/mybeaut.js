@@ -229,7 +229,7 @@ function startPoemTiming() {
             lineLocked = false;
           }, 2000);
 
-        }, 6000);
+        }, 7000);
       }
     };
 }
