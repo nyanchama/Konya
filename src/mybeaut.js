@@ -157,7 +157,7 @@ const poemLines = [
   '',
   "here's a poem",
   "one of my favourite poems",
-  "What Happens, by Hafiz:",
+  "What Happens, by Daniel Ladinsky:",
   "what happens when your soul",
   "begins to awaken",
   "your eyes",
