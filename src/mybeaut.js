@@ -4,17 +4,6 @@ const btnNo = document.getElementById("btnNo");
 //const mainContent = document.getElementById("mainContent");
 const modalText = document.getElementById("modalText");
 
-const tvScreen = document.getElementById("tvScreen");
-const tvStatic = document.getElementById("tvStatic");
-const tvMessage = document.getElementById("tvMessage");
-const tvBed = document.getElementById("tvBed");
-
-const cosmicStage = document.getElementById("cosmicStage");
-// poem element
-const cosmicPoemLine = document.getElementById("cosmicPoemLine");
-const exitBtn = document.getElementById("exitBtn");
-
-
 const alertSound = document.getElementById("alert");
 const clickSound = new Audio("src/sounds/click.wav");
 const startSound = new Audio("src/sounds/start.mp3");
@@ -31,6 +20,17 @@ startSound.preload = "auto";
 errorSound.preload = "auto";
 alertSound.preload = "auto";
 
+const tvScreen = document.getElementById("tvScreen");
+const tvStatic = document.getElementById("tvStatic");
+const tvMessage = document.getElementById("tvMessage");
+const tvBed = document.getElementById("tvBed");
+
+const cosmicStage = document.getElementById("cosmicStage");
+// poem element
+const cosmicPoemLine = document.getElementById("cosmicPoemLine");
+const exitBtn = document.getElementById("exitBtn");
+
+
 const poemLines = [
   "i'm still scarce of words",
   "so, i've decided to have the courage",
@@ -40,7 +40,8 @@ const poemLines = [
   "",
   "i love you.",
   "",
-  "hata hivyo, maybe i could interest you in a poem",
+  "",
+  "mbali na hayo, may i interest you in a poem?",
   "yes, here's a poem",
   "one of my most beloved poems",
   "",
