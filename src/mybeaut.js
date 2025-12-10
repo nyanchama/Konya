@@ -31,6 +31,7 @@ const exitBtn = document.getElementById("exitBtn");
 
 
 const poemLines = [
+  "baby",
   "i'm still scarce of words",
   "so, i've decided to have the courage",
   'to let "i love you."',
@@ -40,9 +41,10 @@ const poemLines = [
   "",
   "",
   "kando na hayo...",
-  "may i interest you in a poem?",
+  "might i interest you in a poem?",
   "yes, here's a poem",
   "one of my most beloved poems",
+  "",
   "",
   "What Happens, by Daniel Ladinsky:",
   "",
@@ -75,7 +77,7 @@ const poemLines = [
   "one of His wonderful, wild companions –",
   "",
   "like Hafiz.",
-  '',
+  "",
   "i love you always, baby.",
   "thank you for being here",
   "may your paths always be peace.",
