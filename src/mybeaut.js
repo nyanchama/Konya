@@ -18,7 +18,7 @@ const errorSound = new Audio("src/sounds/error.mp3");
 const staticShort = new Audio("src/sounds/static.mp3");
 
 const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
-cosmicMusic.loop = true;
+cosmicMusic.loop = false;
 cosmicMusic.volume = 0.9;
 
 clickSound.preload = "auto";
@@ -243,7 +243,7 @@ function showExitButton() {
   }, 2000);
 }
 
-//detect when poem ends
+//when poem ends
 function startPoemTiming() {
   cosmicMusic.ontimeupdate = () => {
     if (poemIndex >= poemLines.length) {
