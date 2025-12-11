@@ -43,7 +43,7 @@ const poemLines = [
   "",
   "",
   "licha ya maneno yangu kukosekana, nitatumia ya wengine...",
-  "ningependa kukutumbuiza na shairi",
+  "ningependa kukuzawadi shairi",
   "",
   "yes, here's a poem",
   "",
