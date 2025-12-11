@@ -281,9 +281,9 @@ exitBtn.addEventListener("click", () => {
   }, 1800);
 });
 
-window.addEventListener("load", () => {
+// window.addEventListener("load", () => {
   showModal();
-});
+// });
 
 
 // function showIntroMessage() {
