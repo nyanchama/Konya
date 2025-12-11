@@ -32,7 +32,9 @@ body {
   text-align:center;
 }
 
-.hidden { display: none; }
+.hidden { 
+  display: none !important;
+}
 
 /* blinking animation */
 @keyframes blink {
@@ -207,10 +209,9 @@ body {
 }
 
 .bed-wiggle {
-  font-size:48px;
+  font-size:45px;
   margin-top:14px;
   animation:wiggle .80s infinite ease-in-out;
-  animation-delay: 2s;
   cursor:pointer;
   display: inline-block;
 }

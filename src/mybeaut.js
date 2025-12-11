@@ -21,7 +21,7 @@ cosmicMusic.volume = 0.9;
 cosmicMusic.preload = "auto";
 
 const tvScreen = document.getElementById("tvScreen");
-const tvStatic = document.getElementById("tvStatic");
+//const tvStatic = document.getElementById("tvStatic");
 const tvMessage = document.getElementById("tvMessage");
 const tvBed = document.getElementById("tvBed");
 
@@ -181,12 +181,7 @@ tvBed.addEventListener("click", () => {
  clickSound.currentTime = 0;
   clickSound.play();
 
-  // turn off static
-//tvStatic.classList.add("static-off");
-
- // turn off static sound
-  // staticShort.pause();
-  // staticShort.currentTime = 0;
+tvBed.classList.add("hidden");
 
 typeText("tuning...", tvMessage, () => {
     setTimeout(() => {
