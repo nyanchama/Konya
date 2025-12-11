@@ -1,14 +1,12 @@
 const modal = document.getElementById("modalBackdrop");
 const btnYes = document.getElementById("btnYes");
 const btnNo = document.getElementById("btnNo");
-//const mainContent = document.getElementById("mainContent");
 const modalText = document.getElementById("modalText");
 
 const alertSound = document.getElementById("alert");
 const clickSound = new Audio("src/sounds/click.wav");
 const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
-const staticShort = new Audio("src/sounds/static.mp3");
 
 clickSound.preload = "auto";
 startSound.preload = "auto";
@@ -21,15 +19,12 @@ cosmicMusic.volume = 0.9;
 cosmicMusic.preload = "auto";
 
 const tvScreen = document.getElementById("tvScreen");
-const tvStatic = document.getElementById("tvStatic");
 const tvMessage = document.getElementById("tvMessage");
 const tvBed = document.getElementById("tvBed");
 
 const cosmicStage = document.getElementById("cosmicStage");
-// poem element
 const cosmicPoemLine = document.getElementById("cosmicPoemLine");
 const exitBtn = document.getElementById("exitBtn");
-
 
 const poemLines = [
   "baby,",
@@ -42,7 +37,7 @@ const poemLines = [
   "i love you.",
   "",
   "",
-  "licha ya maneno yangu kukosekana, nitatumia ya wengine...",
+  "licha ya maneno yangu kukosekana, kuna ya wengine...",
   "ningependa kukuzawadi shairi",
   "",
   "yes, here's a poem",
@@ -88,20 +83,17 @@ const poemLines = [
   "may your paths always be peace.",
 ];
 
-
 let timings = [];
-const startPercent = 0.05;   
-const endPercent   = 0.75;   
-const totalLines   = poemLines.length;
+const startPercent = 0.0431;   
+const endPercent = 0.5231;   
+const totalLines = poemLines.length;
 
-//evenly spaced percentages
 for (let i = 0; i < totalLines; i++) {
   timings.push(startPercent + (i / (totalLines - 1)) * (endPercent - startPercent));
 }
 
 let poemIndex = 0;
 let lineLocked = false;
-
 
 function typeText(text, element, callback) {
   element.textContent = "";
@@ -122,7 +114,6 @@ function typeText(text, element, callback) {
   type();
 }
 
-
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     clickSound.currentTime = 0;
@@ -131,16 +122,13 @@ document.addEventListener("click", (e) => {
 });
 
 function showModal() {
-  // alertSound.currentTime = 0;
-  // alertSound.play().catch(() => {});
-     modal.style.display = "flex";
-    typeText(
-      "are you the most beautiful man ever in the whole world?",
-      modalText
-    );
+  modal.style.display = "flex";
+  typeText(
+    "are you the most beautiful man ever in the whole world?",
+    modalText
+  );
 }
 
-// NO
 btnNo.addEventListener("click", () => {
   clickSound.currentTime = 0;
   clickSound.play();
@@ -154,7 +142,6 @@ btnNo.addEventListener("click", () => {
   setTimeout(showModal, 400);
 });
 
-// YES
 btnYes.addEventListener("click", () => {
   clickSound.currentTime = 0;
   clickSound.play();
@@ -167,55 +154,35 @@ btnYes.addEventListener("click", () => {
   modal.style.display = "none";
 
   tvScreen.classList.remove("hidden");
-  //showIntroMessage();
-  staticShort.currentTime = 0;
-  staticShort.loop = true;
-  staticShort.play();
 
   tvMessage.textContent = "baby, here's a little place i dreamed up for you...";
   tvBed.classList.remove("hidden");
 });
 
-
 tvBed.addEventListener("click", () => {
- clickSound.currentTime = 0;
+  clickSound.currentTime = 0;
   clickSound.play();
 
-  // turn off static
-tvStatic.classList.add("static-off");
+  tvBed.classList.add("hidden");
 
- // turn off static sound
-  staticShort.pause();
-  staticShort.currentTime = 0;
-
-typeText("tuning...", tvMessage, () => {
+  typeText("tuning...", tvMessage, () => {
     setTimeout(() => {
       revealCosmicWorld();
     }, 600);
   });
 });
 
-// typeText("Tuning…", tvMessage, 50, () => {
-//     setTimeout(() => {
-//       alert("Cosmic sequence starting…");
-//       // Next phase would show cosmicStage
-//     }, 800);
-//   });
-// });
-
 function revealCosmicWorld() {
   tvScreen.classList.add("hidden");
   cosmicStage.classList.remove("hidden");
 
-  // trigger fade-in animation
   setTimeout(() => {
     cosmicStage.classList.add("active");
   }, 50);
 
-  // music when world is fully visible
   setTimeout(() => {
     cosmicMusic.currentTime = 0;
-    cosmicMusic.play().catch(()=>{});
+    cosmicMusic.play().catch(() => {});
   }, 1800);
 }
 
@@ -237,7 +204,7 @@ function startPoemTiming() {
       cosmicPoemLine.textContent = poemLines[poemIndex];
       cosmicPoemLine.classList.add("show");
 
-       setTimeout(() => {
+      setTimeout(() => {
         cosmicPoemLine.classList.remove("show");
 
         setTimeout(() => {
@@ -251,7 +218,6 @@ function startPoemTiming() {
 }
 
 cosmicMusic.addEventListener("loadedmetadata", startPoemTiming);
-
 
 function showExitButton() {
   setTimeout(() => {
@@ -286,31 +252,5 @@ exitBtn.addEventListener("click", () => {
   }, 1800);
 });
 
-window.addEventListener("load", () => {
-  showModal();
-});
-
-
-// function showIntroMessage() {
-//   const message = `Baby, here's a small world I dreamed up for you 🛌🏿`;
-  
-//   setTimeout(() => {
-//     typeText(message, introText, () => {
-      
-//       const bed = document.createElement("span");
-//       bed.textContent = "🛌🏿";
-//       bed.classList.add("bed-link");
-
-//       bed.addEventListener("click", () => {
-//         clickSound.currentTime = 0;
-//         clickSound.play();
-//         startFirstExperience();
-//       });
-
-//       bedLinkContainer.appendChild(bed);
-
-//     });
-//   }, 1200); 
-// }
-
-
+// Call immediately instead of waiting for load event
+showModal();

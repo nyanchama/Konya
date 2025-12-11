@@ -32,7 +32,7 @@ body {
   text-align:center;
 }
 
-.hidden { display: none; }
+.hidden { display: none !important;}
 
 /* blinking animation */
 @keyframes blink {
@@ -66,7 +66,8 @@ body {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(31, 34, 39, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,32 +76,43 @@ body {
 
 
 .modal-window {
-  background: #ffd6e8;
-  border: 3px solid #000;
-  border-radius: 8px;
-  width: 350px;
-  box-shadow: 6px 6px 0px #000;
-  color: #000;
+  background: linear-gradient(135deg, 
+    rgba(60, 63, 70, 0.95),
+    rgba(40, 42, 48, 0.98));
+  border: 2px solid rgba(180, 180, 200, 0.4);
+  border-radius: 16px;
+  width: 320px;
+  box-shadow: 
+    0 0 20px rgba(200, 200, 220, 0.2),
+    0 0 40px rgba(150, 150, 180, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  color: #e8e8f0;
+  overflow: hidden;
 }
 
 
 .modal-titlebar {
-  background: #ff69b4;
-  color: white;
-  padding: 5px;
+  background: linear-gradient(90deg,
+    rgba(120, 120, 140, 0.3),
+    rgba(100, 100, 120, 0.3));
+  color: #e8e8f0;
+  padding: 8px;
   font-weight: lighter;
   text-align: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid rgba(180, 180, 200, 0.3);
+  font-size: 18px;
+  text-shadow: 0 0 8px rgba(200, 200, 220, 0.6);
 }
 
 
 .modal-body {
-  padding: 20px;
+  padding: 25px 20px;
   min-height: 60px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: lighter;
   position: relative;
-  color:#191D1E; 
+  color: #e8e8f0;
+  text-align: center;
 }
 
 
@@ -111,14 +123,23 @@ body {
 
 .retro-btn {
   font-family: "VT323", monospace;
-  font-size: 14px;
-  color:#191D1E;
-  padding: 6px 18px;
+  font-size: 16px;
+  color: #e8e8f0;
+  padding: 8px 20px;
   margin: 5px;
-  background: #ffb6c1;
-  border: 2px solid #000;
-  box-shadow: 2px 2px #000;
+  background: rgba(120, 120, 140, 0.2);
+  border: 2px solid rgba(180, 180, 200, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(200, 200, 220, 0.3);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retro-btn:hover {
+  background: rgba(140, 140, 160, 0.3);
+  border-color: rgba(200, 200, 220, 0.8);
+  box-shadow: 0 0 25px rgba(200, 200, 220, 0.5);
+  transform: scale(1.05);
 }
 
 .retro-btn:active {
@@ -129,7 +150,7 @@ body {
 .cursor {
   display: inline-block;
   width: 8px;
-  background: #000;
+  background: #b4b4c8;
   margin-left: 2px;
   animation: blink 1s infinite;
 }
@@ -166,7 +187,7 @@ body {
 .static-on {
   position:absolute;
   inset:0;
-  background:url('images/static.gif');
+  background:url('images/starss.gif');
   background-size:cover;
   filter:grayscale(20%) contrast(60%);
   opacity:1;
@@ -196,21 +217,18 @@ body {
   display: block;
   margin: 0 auto;
   padding:6px;
-  color:var(--glow);
+  color: #ffffff;
   line-height: 1.25;
   max-width: 86%;
   animation: lightFlicker 1.8s infinite;
   text-shadow:
-    0 0 4px var(--glow),
-    0 0 12px var(--glow),
-    0 0 20px var(--glow);
+   0 0 20px var(--vaporpink)
 }
 
 .bed-wiggle {
   font-size:48px;
   margin-top:14px;
   animation:wiggle .80s infinite ease-in-out;
-  animation-delay: 2s;
   cursor:pointer;
   display: inline-block;
 }
@@ -255,14 +273,14 @@ body {
   margin-top:20vh;
 }
 
-.cosmic-title {
+/* .cosmic-title {
   font-size:50px;
   color:white;
   text-shadow:0 0 20px var(--vaporpink), 0 0 35px var(--vaporblue);
   opacity: 1;
   animation: fadeOutTitle 6s ease forwards;
   animation-delay: 3s; 
-}
+} */
 
 .cosmic-poem-line {
   opacity: 0;
