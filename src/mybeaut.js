@@ -37,7 +37,7 @@ const poemLines = [
   "i love you.",
   "",
   "",
-  "licha ya maneno yangu kukosekana, kuna ya wengine...",
+  "hata kama maneno yangu yamekosekana, kuna ya wengine...",
   "ningependa kukuzawadi shairi",
   "",
   "yes, here's a poem",
