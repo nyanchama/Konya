@@ -84,7 +84,7 @@ const poemLines = [
 ];
 
 let timings = [];
-const startPercent = 0.0431;   
+const startPercent = 0.05;   
 const endPercent = 0.5231;   
 const totalLines = poemLines.length;
 
