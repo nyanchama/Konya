@@ -19,6 +19,7 @@ const cosmicMusic = new Audio("src/music/soundtrack4.mp3");
 cosmicMusic.loop = false;
 cosmicMusic.volume = 0.9;
 cosmicMusic.preload = "auto";
+
 const tvScreen = document.getElementById("tvScreen");
 const tvStatic = document.getElementById("tvStatic");
 const tvMessage = document.getElementById("tvMessage");
@@ -37,6 +38,7 @@ const poemLines = [
   'to let "i love you."',
   "stand on its own",
   "",
+  "",
   "i love you.",
   "",
   "",
@@ -49,7 +51,6 @@ const poemLines = [
   "",
   "",
   "What Happens, by Daniel Ladinsky:",
-  "",
   "",
   "what happens when your soul",
   "begins to awaken",
@@ -119,21 +120,6 @@ function typeText(text, element, callback) {
   type();
 }
 
-  function typePoemLine(text, element, callback) {
-  element.textContent = "";
-  let i = 0;
-
-  function type() {
-    if (i < text.length) {
-      element.textContent += text[i];
-      i++;
-      setTimeout(type, 80);
-    } else {
-      callback && callback();
-    }
-  }
-  type();
-}
 
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
@@ -246,18 +232,18 @@ function startPoemTiming() {
     if (t >= duration * timings[poemIndex]) {
       lineLocked = true;
 
+      cosmicPoemLine.textContent = poemLines[poemIndex];
       cosmicPoemLine.classList.add("show");
-      typePoemLine(poemLines[poemIndex], cosmicPoemLine, () => {
+
+       setTimeout(() => {
+        cosmicPoemLine.classList.remove("show");
+
         setTimeout(() => {
-          cosmicPoemLine.classList.remove("show");
+          poemIndex++;
+          lineLocked = false;
+        }, 2000);
 
-          setTimeout(() => {
-            poemIndex++;
-            lineLocked = false;
-          }, 2000);
-
-        }, 5000);
-      });
+      }, 5000);
     }
   };
 }
