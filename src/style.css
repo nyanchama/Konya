@@ -166,10 +166,10 @@ body {
 }
 
 .static-on {
+  background:url('images/starss.gif') !important;
+  background-size:cover;
   position:absolute;
   inset:0;
-  background:url('images/starss.gif');
-  background-size:cover;
   filter:grayscale(20%) contrast(60%);
   opacity:1;
   z-index:1;
