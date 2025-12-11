@@ -270,11 +270,14 @@ body {
 }
 
 .poem-area {
-  position:relative;
-  z-index:10;
-  text-align:center;
-  margin-top:20vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%; /* optional, so text doesn't stretch too wide */
 }
+
 
 .cosmic-title {
   font-size:30px;
