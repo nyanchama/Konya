@@ -212,6 +212,7 @@ body {
 }
 
 .tv-message {
+  font-family: "VT323", monospace;
   font-size:20px;
   text-align:center;
   display: block;
