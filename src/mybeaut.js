@@ -90,8 +90,8 @@ const poemLines = [
 
 
 let timings = [];
-const startPercent = 0.05;   
-const endPercent   = 0.75;   
+const startPercent = 0.06;   
+const endPercent   = 0.5231;   
 const totalLines   = poemLines.length;
 
 //evenly spaced percentages
