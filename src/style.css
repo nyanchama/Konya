@@ -222,7 +222,9 @@ body {
   max-width: 86%;
   animation: lightFlicker 1.8s infinite;
   text-shadow:
-   0 0 20px var(--vaporpink)
+    0 0 20px var(--vaporpink),
+    0 0 12px var(--glow),
+    0 0 20px var(--glow);
 }
 
 .bed-wiggle {
@@ -273,14 +275,14 @@ body {
   margin-top:20vh;
 }
 
-/* .cosmic-title {
-  font-size:50px;
+.cosmic-title {
+  font-size:30px;
   color:white;
   text-shadow:0 0 20px var(--vaporpink), 0 0 35px var(--vaporblue);
   opacity: 1;
   animation: fadeOutTitle 6s ease forwards;
   animation-delay: 3s; 
-} */
+}
 
 .cosmic-poem-line {
   opacity: 0;
