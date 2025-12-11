@@ -8,7 +8,7 @@ const alertSound = document.getElementById("alert");
 const clickSound = new Audio("src/sounds/click.wav");
 const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
-//const staticShort = new Audio("src/sounds/static.mp3");
+const staticShort = new Audio("src/sounds/static.mp3");
 
 clickSound.preload = "auto";
 startSound.preload = "auto";
@@ -21,7 +21,7 @@ cosmicMusic.volume = 0.9;
 cosmicMusic.preload = "auto";
 
 const tvScreen = document.getElementById("tvScreen");
-//const tvStatic = document.getElementById("tvStatic");
+const tvStatic = document.getElementById("tvStatic");
 const tvMessage = document.getElementById("tvMessage");
 const tvBed = document.getElementById("tvBed");
 
@@ -42,7 +42,7 @@ const poemLines = [
   "i love you.",
   "",
   "",
-  "licha ya maneno yangu kukosekana, kuna ya wengine...",
+  "licha ya maneno yangu kukosekana, nitatumia ya wengine...",
   "ningependa kukuzawadi shairi",
   "",
   "yes, here's a poem",
@@ -90,8 +90,8 @@ const poemLines = [
 
 
 let timings = [];
-const startPercent = 0.06;   
-const endPercent   = 0.5231;   
+const startPercent = 0.05;   
+const endPercent   = 0.75;   
 const totalLines   = poemLines.length;
 
 //evenly spaced percentages
@@ -168,9 +168,9 @@ btnYes.addEventListener("click", () => {
 
   tvScreen.classList.remove("hidden");
   //showIntroMessage();
-  // staticShort.currentTime = 0;
-  // staticShort.loop = true;
-  // staticShort.play();
+  staticShort.currentTime = 0;
+  staticShort.loop = true;
+  staticShort.play();
 
   tvMessage.textContent = "baby, here's a little place i dreamed up for you...";
   tvBed.classList.remove("hidden");
@@ -181,7 +181,12 @@ tvBed.addEventListener("click", () => {
  clickSound.currentTime = 0;
   clickSound.play();
 
-tvBed.classList.add("hidden");
+  // turn off static
+tvStatic.classList.add("static-off");
+
+ // turn off static sound
+  staticShort.pause();
+  staticShort.currentTime = 0;
 
 typeText("tuning...", tvMessage, () => {
     setTimeout(() => {
@@ -281,9 +286,9 @@ exitBtn.addEventListener("click", () => {
   }, 1800);
 });
 
-// window.addEventListener("load", () => {
+window.addEventListener("load", () => {
   showModal();
-// });
+});
 
 
 // function showIntroMessage() {
