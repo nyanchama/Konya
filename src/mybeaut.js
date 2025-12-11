@@ -8,7 +8,7 @@ const alertSound = document.getElementById("alert");
 const clickSound = new Audio("src/sounds/click.wav");
 const startSound = new Audio("src/sounds/start.mp3");
 const errorSound = new Audio("src/sounds/error.mp3");
-const staticShort = new Audio("src/sounds/static.mp3");
+//const staticShort = new Audio("src/sounds/static.mp3");
 
 clickSound.preload = "auto";
 startSound.preload = "auto";
@@ -168,9 +168,9 @@ btnYes.addEventListener("click", () => {
 
   tvScreen.classList.remove("hidden");
   //showIntroMessage();
-  staticShort.currentTime = 0;
-  staticShort.loop = true;
-  staticShort.play();
+  // staticShort.currentTime = 0;
+  // staticShort.loop = true;
+  // staticShort.play();
 
   tvMessage.textContent = "baby, here's a little place i dreamed up for you...";
   tvBed.classList.remove("hidden");
@@ -182,11 +182,11 @@ tvBed.addEventListener("click", () => {
   clickSound.play();
 
   // turn off static
-tvStatic.classList.add("static-off");
+//tvStatic.classList.add("static-off");
 
  // turn off static sound
-  staticShort.pause();
-  staticShort.currentTime = 0;
+  // staticShort.pause();
+  // staticShort.currentTime = 0;
 
 typeText("tuning...", tvMessage, () => {
     setTimeout(() => {
