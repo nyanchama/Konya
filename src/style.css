@@ -15,12 +15,11 @@ html, body {
 }
 
 body {
- margin: 0;
+  margin: 0;
   background: #1F2227;
   font-family: "VT323", monospace;
   color: white;
   overflow-x: hidden;
-  /* text-align: center; */
 }
 
 .center {
@@ -68,7 +67,8 @@ body {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(31, 34, 39, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,61 +77,82 @@ body {
 
 
 .modal-window {
-  background: #ffd6e8;
-  border: 3px solid #000;
-  border-radius: 8px;
-  width: 350px;
-  box-shadow: 6px 6px 0px #000;
-  color: #000;
+  background: linear-gradient(135deg, 
+    rgba(43, 16, 85, 0.95),
+    rgba(26, 8, 50, 0.98));
+  border: 2px solid rgba(255, 94, 223, 0.4);  /* Reduced from 0.6 */
+  border-radius: 16px;
+  width: 320px;
+  box-shadow: 
+    0 0 20px rgba(255, 94, 223, 0.2),  /* Reduced from 0.4 */
+    0 0 40px rgba(106, 0, 255, 0.15),  /* Reduced from 0.3 */
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  color: #ffeaff;
+  overflow: hidden;
 }
 
-
 .modal-titlebar {
-  background: #ff69b4;
-  color: white;
-  padding: 5px;
+  background: linear-gradient(90deg,
+    rgba(255, 94, 223, 0.2),  /* Reduced from 0.3 */
+    rgba(106, 0, 255, 0.2));  /* Reduced from 0.3 */
+  color: #ffeaff;
+  padding: 8px;
   font-weight: lighter;
   text-align: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid rgba(255, 94, 223, 0.2);  /* Reduced from 0.3 */
+  font-size: 18px;
+  text-shadow: 0 0 8px rgba(255, 94, 223, 0.5);  /* Reduced from 0.8 */
 }
 
 
 .modal-body {
-  padding: 20px;
+  padding: 25px 20px;
   min-height: 60px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: lighter;
   position: relative;
-  color:#191D1E; 
+  color: #ffeaff;
+  text-align: center;
 }
 
 
 .modal-buttons {
-  padding: 10px;
+  padding: 15px;
   text-align: center;
 }
 
 .retro-btn {
   font-family: "VT323", monospace;
-  font-size: 14px;
-  color:#191D1E;
-  padding: 6px 18px;
+  font-size: 16px;
+  color: #ffeaff;
+  padding: 8px 20px;
   margin: 5px;
-  background: #ffb6c1;
-  border: 2px solid #000;
-  box-shadow: 2px 2px #000;
+  background: rgba(255, 94, 223, 0.2);
+  border: 2px solid rgba(255, 94, 223, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255, 94, 223, 0.3);
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.retro-btn:hover {
+  background: rgba(255, 94, 223, 0.3);
+  border-color: rgba(255, 94, 223, 0.8);
+  box-shadow: 0 0 25px rgba(255, 94, 223, 0.6);
+  transform: scale(1.05);
+}
+
+
 .retro-btn:active {
-  box-shadow: inset 2px 2px #000;
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(255, 94, 223, 0.4);
 }
 
 
 .cursor {
   display: inline-block;
   width: 8px;
-  background: #000;
+  background: #ff5edf;
   margin-left: 2px;
   animation: blink 1s infinite;
 }
@@ -166,10 +187,10 @@ body {
 }
 
 .static-on {
-  background:url('images/starss.gif') !important;
-  background-size:cover;
   position:absolute;
   inset:0;
+  background:url('images/starss.gif') !important;
+  background-size:cover;
   filter:grayscale(20%) contrast(60%);
   opacity:1;
   z-index:1;
@@ -229,23 +250,30 @@ body {
 }
 
 #stars {
-  position:absolute;
-  inset:0;
-  background:url('images/stars.gif');
-  background-size:cover;
-  opacity:0.9;
+  position: absolute;
+  inset: 0;
+  background: url('images/stars.gif');
+  background-size: cover;
+  opacity: 0.6;  /* Reduced from 0.9 */
+}
+
+#stars::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.2));
 }
 
 #nebula {
-  position:absolute;
-  inset:0;
+  position: absolute;
+  inset: 0;
   background: radial-gradient(circle at 60% 40%,
       rgba(255,94,223,0.45),
       rgba(106,0,255,0.35),
       rgba(4,250,254,0.12),
       transparent 70%);
   mix-blend-mode: screen;
-  filter: blur(40px);
+  filter: blur(60px);  /* Increased from 40px for smoother effect */
   animation: nebulaMove 14s infinite alternate ease-in-out;
 }
 
