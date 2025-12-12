@@ -252,5 +252,4 @@ exitBtn.addEventListener("click", () => {
   }, 1800);
 });
 
-// Call immediately instead of waiting for load event
 showModal();
