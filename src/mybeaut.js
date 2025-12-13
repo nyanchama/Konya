@@ -44,7 +44,6 @@ const poemLines = [
   "",
   "one of my most beloved poems",
   "",
-  "",
   "What Happens, by Daniel Ladinsky",
   "",
   "* * *",
