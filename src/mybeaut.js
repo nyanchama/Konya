@@ -48,6 +48,7 @@ const poemLines = [
   "What Happens, by Daniel Ladinsky:",
   "",
   "* * *",
+  "",
   "What happens when your soul",
   "Begins to awaken",
   "Your eyes",
