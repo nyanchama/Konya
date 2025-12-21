@@ -146,7 +146,7 @@ btnYes.addEventListener("click", () => {
   clickSound.currentTime = 0;
   clickSound.play();
 
-  alert("yes you are, my beautiful love! 💖");
+  alert("yes, you are, my beautiful love! 💖");
 
   startSound.currentTime = 0;
   startSound.play();
